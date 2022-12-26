@@ -37,7 +37,7 @@ func IGListKit(enabled: Bool) -> [CSetting] {
 
 
 let package = Package(
-    name: "Texture",
+    name: "CHTexture",
     platforms: [
              .macOS(.v10_15),
              .iOS(.v10),
