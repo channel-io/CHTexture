@@ -18,12 +18,12 @@
 #endif
 
 #ifndef AS_ENABLE_TEXTNODE
-  #define AS_ENABLE_TEXTNODE 1 // Enable old TextNode by default
+  #define AS_ENABLE_TEXTNODE 0 // Enable old TextNode by default (obsoleted) // replaced 1 to 0 @ian
 #endif
 
 // This needs to stay in sync with Weaver
 #ifndef AS_USE_VIDEO
-  #define AS_USE_VIDEO 1
+  #define AS_USE_VIDEO 1 // replaced 0 to 1 @ian
 #endif
 
 #ifndef AS_USE_PHOTOS
