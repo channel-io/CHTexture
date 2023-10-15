@@ -121,6 +121,10 @@ UIImage *ASGraphicsCreateImage(ASPrimitiveTraitCollection traitCollection, CGSiz
   }
 
   // Bad OS or experiment flag. Use UIGraphics* API.
+  // NOTE: UIGraphicsBeginImageContextWithOptions deprecated(-iOS 17)에 따른 방어 코드 작성.
+  // See also: (link)
+  // 2023.10.15 - by ian -
+  if ((size.width * size.height) < CGFLOAT_EPSILON) { return nil; }
   UIGraphicsBeginImageContextWithOptions(size, opaque, scale);
   ASPerformBlockWithTraitCollection(work, traitCollection)
   UIImage *image = nil;
