@@ -320,6 +320,11 @@ using AS::MutexLocker;
     CGRect bounds = CGRectZero;
     if (context == NULL) {
       bounds = self.threadSafeBounds;
+      // NOTE: UIGraphicsBeginImageContextWithOptions deprecated(-iOS 17)에 따른 방어 코드 작성.
+      // See also: (link)
+      // 2023.10.15 - by ian -
+      if ((bounds.size.width * bounds.size.height) < CGFLOAT_EPSILON) { return; }
+
       bounds.size.width *= contentsScale;
       bounds.size.height *= contentsScale;
       CGFloat white = 0.0f, alpha = 0.0f;
